@@ -1,0 +1,76 @@
+<div class="well">
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button class="btn-primary" (click)="onSave()">Save</button>
+                </div>
+            </div>
+            <legend>Create Hero Profile {{hero.name}}</legend>
+            <div class="row">
+                <div class="col-lg-3" style="background: red;">
+                    <div *ngIf="hero.name && hero.key">
+                        <img [src]="hero.key | gallery:'hero':'lg'">
+                        {{hero.name}}
+                        
+                    </div>
+                    
+                    <potrait-select (outputEvent)="onPotraitSelected($event)"></potrait-select>
+                </div>
+
+                <div class="col-lg-9">
+                    <!--div class="form-group">
+                        <label for="hero-name" class="col-lg-3 control-label">Name</label>
+                        <div class="col-lg-9">
+                            <input name="name" [(ngModel)]="hero.name" type="text" class="form-control" id="hero-name" placeholder="select a new hero to create">
+                        </div>
+                    </div-->
+                
+                    <div class="form-group">
+                        <label for="hero-faction" class="col-lg-3 control-label">Faction</label>
+                        <div class="col-lg-9">
+                            <select name="faction" [(ngModel)]="hero.faction" class="form-control" id="hero-faction">
+                                <option value="0">Radiant</option>
+                                <option value="1">Dire</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hero-primary-attribute" class="col-lg-3 control-label">Primary Attribute</label>
+                        <div class="col-lg-9">
+                            <select name="primaryAttribute" [(ngModel)]="hero.primaryAttribute" class="form-control" id="hero-primary-attribute">
+                                <option value="0">Agility</option>
+                                <option value="1">Intelligence</option>
+                                <option value="2">Strength</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hero-attack-type" class="col-lg-3 control-label">Attack Type</label>
+                        <div class="col-lg-9">
+                            <select name="attackType" [(ngModel)]="hero.attackType" class="form-control" id="hero-attack-type">
+                                <option value="0">Melee</option>
+                                <option value="1">Ranged</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hero-role" class="col-lg-3 control-label">Role</label>
+                        <div class="col-lg-9">
+                            <input name="hardCarry" [(ngModel)]="hero.role.hardCarry" class="form-control">
+                            <input name="semiCarry" [(ngModel)]="hero.role.semiCarry" class="form-control">
+                            <input name="ganker" [(ngModel)]="hero.role.ganker" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="hero-abilities">
+                        <ability-layout [abilities]="abilities" [layoutSlot]="3"></ability-layout>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

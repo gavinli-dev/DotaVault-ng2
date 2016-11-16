@@ -1,0 +1,14 @@
+hero abilities
+select ability for slot {{slotIndex}}
+<ability-select (select)="onAbilitySelect($event)"></ability-select>
+
+<ul>
+    <li *ngFor="let ability of abilities; let i = index;">
+        <div *ngIf="ability == null" (click)="onSelectSlot(i)" style="padding: 25px; background: yellow;">
+            {{i}}+
+        </div>
+        <div *ngIf="ability != null">
+            <ability-icon [ability]="ability"></ability-icon>
+        </div>
+    </li>
+</ul>

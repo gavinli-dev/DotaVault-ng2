@@ -1,0 +1,16 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Dota Vault</h1>
+            <p class="lead">A Dota 2 Library</p>
+        </div>
+    </div>
+</div>
+
+<section class="hot-heroes">
+    <div class="row">
+        <div *ngFor="let hero of heroes" class="col-sm-12 col-lg-6">
+            <hero-icon [hero]="hero"></hero-icon>
+        </div>
+    </div>
+</section>

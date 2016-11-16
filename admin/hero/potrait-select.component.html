@@ -1,0 +1,6 @@
+<ul>
+    <li (click)="onSelect(hp)" *ngFor="let hp of heroPotraits">
+        <div><img [src]="hp.key | gallery:'hero':'sm'"></div>
+        <div>{{hp.localized_name}}</div>
+    </li>
+</ul>

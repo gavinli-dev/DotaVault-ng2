@@ -1,0 +1,19 @@
+<div *ngIf="hero">
+    <div class="protrait">
+        <h1>{{hero.name}}</h1>
+        <img [src]="hero.key | gallery:'hero':'vert'" >
+        <rating [rate]="hero.role.hardCarry" label="Hard Carry"></rating>
+        <rating [rate]="hero.role.semiCarry" label="Semi Carry"></rating>
+        <rating [rate]="hero.role.ganker" label="Ganker"></rating>
+        <rating [rate]="hero.role.roamer" label="Roamer"></rating>
+        <rating [rate]="hero.role.offlaner" label="Offlaner"></rating>
+    </div>
+    <div class="profile">
+        <h2>Hero Profile</h2>
+        Blablabla
+    </div>
+    <div class="skills">
+        <h2>Skills</h2>
+        skilles
+    </div>
+</div>
