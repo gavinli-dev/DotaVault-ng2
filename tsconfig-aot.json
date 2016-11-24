@@ -6,16 +6,17 @@
         "sourceMap": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "lib": [
-            "es2015",
-            "dom"
-        ],
+        // "lib": [
+        //     "es2015",
+        //     "dom"
+        // ],
         "removeComments": true,
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
         "typeRoots": [
             "node_modules/@types/"
-        ]
+        ],
+        "outDir": "dist/aot/unbundled"
     },
     "files": [
         "front/app/app.module.ts",
@@ -25,7 +26,7 @@
         "node_modules"
     ],
     "angularCompilerOptions": {
-        "genDir": "aot",
+        "genDir": "dist/aot/factory",
         "skipMetadataEmit": true
     }
 }
