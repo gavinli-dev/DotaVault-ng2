@@ -1,0 +1,28 @@
+<div class="action-buttons-area">
+    <a class="btn btn-primary" routerLink="/hero/create">Create Hero Profile</a>
+</div>
+<table class="table table-striped table-hover">
+    <tbody>
+        <tr>
+            <th></th>
+            <th>Faction</th>
+            <th>Name</th>
+        </tr>
+        <tr *ngFor="let hero of heroes" (click)="onEditHero(hero)">
+            <td class="potrait">
+                <img [src]="hero.key | gallery:'hero':'sm'" />
+            </td>
+            <td class="faction">
+                <span [class]="enumFaction(hero.faction)">{{enumFaction(hero.faction) | uppercase}}</span>
+            </td>
+            <td class="name">{{hero.name}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                page 1/1
+            </td>
+        </tr>
+    </tfoot>
+</table>

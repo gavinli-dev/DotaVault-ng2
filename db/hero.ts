@@ -10,5 +10,5 @@ export class Hero {
         semiCarry: 0,
         ganker: 0
     };
-    abilities;
+    abilities:          any;
 }

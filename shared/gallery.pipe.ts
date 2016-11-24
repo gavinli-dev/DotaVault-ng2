@@ -3,6 +3,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'gallery'})
 export class GalleryPipe implements PipeTransform {
     transform(value: string, type: string, size?: string): string {
+        let cdnUrl:string; 
+        let suffix:string[];
+
         let heroCdn = 'http://cdn.dota2.com/apps/dota2/images/heroes';
         let abilityCdn = "http://cdn.dota2.com/apps/dota2/images/abilities";
         let heroImgSuffix = [
@@ -11,15 +14,12 @@ export class GalleryPipe implements PipeTransform {
             'full.png',
             'vert.jpg'
         ];
-        let abilitySuffix = [
+        let abilityImgSuffix = [
             'sm.png',
             'md.png',
             'hp1.png',
             'lg.png'
         ];
-
-        var cdnUrl; 
-        var suffix;
 
         switch(type) {
             case 'hero':
@@ -28,7 +28,7 @@ export class GalleryPipe implements PipeTransform {
                 break;
             case 'ability':
                 cdnUrl = abilityCdn + '/' + value;
-                suffix = abilitySuffix;
+                suffix = abilityImgSuffix;
                 break;
         }
         switch(size) {
@@ -42,7 +42,7 @@ export class GalleryPipe implements PipeTransform {
                 cdnUrl+= '_' + suffix[2];
                 break;
             case 'ex':
-                cdnUrl+= '_' + suffix[4];
+                cdnUrl+= '_' + suffix[3];
                 break;
             default:
                 cdnUrl+= '_' + suffix[0];

@@ -10,14 +10,11 @@ import { Ability, AbilityService }  from '../../db/ability.service';
 import { AbilityLayoutComponent }   from "./ability-layout.component";
 
 @Component({
-    //moduleId: module.id,
     templateUrl: './hero-editor.component.html',
-    providers: [
-        //ActivatedRoute
-    ]
+    styleUrls: ['./hero-editor.component.css']
 })
 export class HeroEditorComponent implements OnInit {
-    @Output() outputEvent: EventEmitter<Hero> = new EventEmitter();
+    @Output() outputEvent: EventEmitter<any> = new EventEmitter();
 
     @ViewChild(AbilityLayoutComponent) alc: AbilityLayoutComponent;
 
@@ -25,6 +22,8 @@ export class HeroEditorComponent implements OnInit {
     heroId: string;
 
     abilities: Ability[];
+
+    componentAction: string;
 
     constructor(
         private hs: HeroService,
@@ -59,6 +58,10 @@ export class HeroEditorComponent implements OnInit {
         }
     }
 
+    onBack() {
+        this.router.navigate(['hero']);
+    }
+
     onPotraitSelected($event: HeroPotrait) {
         this.hero.name = $event.localized_name;
         this.hero.key = $event.key;
@@ -71,9 +74,12 @@ export class HeroEditorComponent implements OnInit {
         if(this.heroId != null) {
             this.hs.getHeroById(this.heroId).subscribe(
                 h => {
-                    this.hero = h
+                    this.hero = h,
+                    this.componentAction = 'edit'
                 }
             );
+        } else {
+            this.componentAction = 'create'
         }
     }
 }

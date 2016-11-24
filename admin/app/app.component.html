@@ -1,14 +1,24 @@
-<div id="sidebar"><div class="navigator">
-    <div class="list-group">
-        <a class="list-group-item list-group-item-action" routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
-        <a class="list-group-item list-group-item-action" routerLinkActive="active" routerLink="/hero">Heroes</a>
-        <a class="list-group-item list-group-item-action" routerLinkActive="active" routerLink="/skill">Skills</a>
-        <a class="list-group-item list-group-item-action" routerLinkActive="active" routerLink="/item">Items</a>
+<nav class="navbar navbar-static-top" style="margin-bottom:0;">
+    
+    <div class="navbar-default sidebar">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav">
+                <li>
+                    <a routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
+                </li>
+                <li>    
+                    <a routerLinkActive="active" routerLink="/hero">Heroes</a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" routerLink="/skill">Skills</a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" routerLink="/item">Items</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="bottom-links">
-        <li><a href="/">Dota Vault</a></li>
-    </div>
-</div></div>
-<div id="container-main">
+</nav>
+<div id="page-wrapper">
     <router-outlet></router-outlet>
 </div>

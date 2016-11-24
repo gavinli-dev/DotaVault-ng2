@@ -20,7 +20,7 @@ import { Ability, AbilityService }          from '../../db/ability.service';
     ]
 })
 export class AbilitySelectComponent implements OnInit {
-    @Output() select: EventEmitter<Ability> = new EventEmitter();
+    @Output() select: EventEmitter<any> = new EventEmitter();
     abilities: Ability[];
 
     search: string;
@@ -33,7 +33,7 @@ export class AbilitySelectComponent implements OnInit {
         return abilitiy.key;
     }
 
-    onSelect(ability) {
+    onSelect(ability: Ability) {
         this.select.emit(ability);
     }
     

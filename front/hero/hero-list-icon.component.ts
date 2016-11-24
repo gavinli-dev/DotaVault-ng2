@@ -36,7 +36,7 @@ import { Hero } from '../../db/hero.service';
 })
 export class HeroListIconComponent {
     @Input() hero: Hero;
-    @Output() heroFocused: EventEmitter<Hero> = new EventEmitter();
+    @Output() heroFocused: EventEmitter<any> = new EventEmitter();
     focused: string = "none";
 
     @HostListener('mouseover', ['$event.target']) onmouseover() {

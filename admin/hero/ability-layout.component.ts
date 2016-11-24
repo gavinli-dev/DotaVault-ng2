@@ -8,7 +8,7 @@ import { Ability }          from "../../db/ability.service"
 export class AbilityLayoutComponent implements OnInit {
     @Input() layoutSlot: number;
     @Input() abilities: Ability[];
-    @Output() abilitiesChanged: EventEmitter<Ability[]> = new EventEmitter();
+    @Output() abilitiesChanged: EventEmitter<any> = new EventEmitter();
 
     slotIndex: number = 0;
 
@@ -16,12 +16,12 @@ export class AbilityLayoutComponent implements OnInit {
         alert("should be a popup window for ability selection!!");
     }
 
-    onAbilitySelect ($event) {
+    onAbilitySelect ($event: any) {
         this.abilities[this.slotIndex] = $event;
         this.abilitiesChanged.emit(this.abilities);
     }
 
-    onSelectSlot (slotIndex) {
+    onSelectSlot (slotIndex: number) {
         this.slotIndex = slotIndex;
     }
 
@@ -29,11 +29,16 @@ export class AbilityLayoutComponent implements OnInit {
         if(![3,4,5].some(x => x == this.layoutSlot)) {
             this.layoutSlot = 3;
         }
+        
         if(this.abilities == undefined) {
             this.abilities = new Array<Ability>();
             for(let i = 0; i < this.layoutSlot; i++) {
                 this.abilities.push(null);
             }
+        } else {
+            
+            console.log(    this.abilities);
+            
         }
     }
 }

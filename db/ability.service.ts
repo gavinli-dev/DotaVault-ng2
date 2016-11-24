@@ -17,7 +17,7 @@ export class AbilityService {
 
     ) {}
 
-    getAbilitiesByHeroKey(heroKey): Observable<Ability[]> {
+    getAbilitiesByHeroKey(heroKey:string): Observable<Ability[]> {
         return this.http.get(this.abilityApi + '?hero_key=' + heroKey)
             .map(this.extractData);
     }

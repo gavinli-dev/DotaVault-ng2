@@ -1,40 +1,73 @@
-var webpackMerge = require('webpack-merge');
+//var webpackMerge = require('webpack-merge');
 //var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
-//var helpers = require('./helpers');
+//var commonConfig = require('./webpack.common.js');
+var htmlPlugin = require('html-webpack-plugin');
 
-module.exports = webpackMerge(commonConfig, {
-  devtool: 'cheap-module-eval-source-map',
-
+module.exports = {
+  //devtool: 'cheap-module-eval-source-map',
+entry: {
+        //'polyfills': './vendor/polyfill.ts',
+        //'vendor': './vendor/vendor.ts',
+        //'front': './front/main.ts'
+        //'admin': './admin/main.ts'
+        'test': './front/test.ts'
+    },
   output: {
-    path: ('./dist'),
+    path: ('./dist-jit'),
     publicPath: 'http://localhost:8080/',
-    filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
+    filename: '[name].js'
+    //chunkFilename: '[id].chunk.js'
   },
-
-  // plugins: [
-  //   new ExtractTextPlugin('[name].css')
-  // ],
-
+  resolve: {
+        extensions: ['', '.ts', '.js']
+    }
+  //plugins: [
+    //new ExtractTextPlugin('[name].css')
+  //],
+  module: {
+        loaders: [
+            {
+                test: /\.ts$/,
+                loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+                exclude: [/\.(spec|e2e)\.ts$/]
+            }
+            // ,
+            // {
+            //     test: /\.html$/,
+            //     loader: 'html'
+            // },
+            // {
+            //     test: /\.(jpg|png|gif|svg)$/i,
+            //     loader: 'file?name=assets/[name].[ext]'
+            // },
+            // {
+            //     test: /\.css$/,
+            //     loader: 'raw'
+            // }
+        ]
+  },
+  plugins: [
+      new htmlPlugin({
+          filename: 'index.html',
+          template: 'front/index.html',
+          //chunks: ['polyfills', 'front']
+      })
+  ],
   devServer: {
-    contentBase: './dist',
-//    inline: true,
-//    progress: true,
-//    hot: true,
+    contentBase: './dist-jit',
+    // hot: true,
+    // inline: true,
+    // progress: true,
+    
     // quiet: false,
     // stats: { colors: true },
     proxy: {
       "/api": {
-        // "target": {
-        //   "host": 'localhost',
-        //   "protocal": 'http:',
-        //   "port": 50029
-        // },
-        // ignorePath: true,
-        // changeOrigin: true,
-        // secure: false
-        target: "http://localhost:50029",
+        target: {
+          "host": "localhost",
+          "protocal": "http",
+          "port": "8081"
+        },
         secure: false
       }
     },
@@ -43,6 +76,6 @@ module.exports = webpackMerge(commonConfig, {
         { from: /^\/admin/, to: '/admin.html' }
       ]
     },
-    stats: 'errors-only',
+    //stats: 'errors-only',
   }
-});
+};

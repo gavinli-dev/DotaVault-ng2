@@ -49,7 +49,7 @@ export class HeroListComponent implements OnInit {
         //return hero.id === this.selectedId;
     }
 
-    onHeroFocused(heroEvent) {
+    onHeroFocused(heroEvent: any) {
         this.focusedHero = heroEvent;
     }
 

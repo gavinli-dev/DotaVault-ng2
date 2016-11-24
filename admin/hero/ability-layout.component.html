@@ -9,6 +9,7 @@ select ability for slot {{slotIndex}}
         </div>
         <div *ngIf="ability != null">
             <ability-icon [ability]="ability"></ability-icon>
+            <div (click)="onSelectSlot(i)">change</div>
         </div>
     </li>
 </ul>

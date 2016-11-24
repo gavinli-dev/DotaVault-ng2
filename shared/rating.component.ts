@@ -46,7 +46,7 @@ export class RatingComponent implements OnInit{
         return this.rate > 0;
     }
 
-    isActive(i) {
+    isActive(i:number) {
         return i < this.rate;
     }
 

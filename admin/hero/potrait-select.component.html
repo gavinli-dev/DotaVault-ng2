@@ -1,6 +1,19 @@
+<div class="hero-potrait" *ngIf="heroPotrait">
+    <div class=""><img [src]="heroPotrait.key | gallery:'hero':'md'"></div>
+    <div>{{heroPotrait.localized_name}}</div>
+    <div class="alert alert-info">
+        Each potrait can only be used for <strong>ONE</strong> hero<br />
+        Once the potrait is selected, it can <strong>NOT</strong> change in the future<br />
+    </div>
+</div>
+<div class="hero-potrait-holder" *ngIf="!heroPotrait">
+    select a potrait for hero profile from below
+</div>
 <ul>
     <li (click)="onSelect(hp)" *ngFor="let hp of heroPotraits">
-        <div><img [src]="hp.key | gallery:'hero':'sm'"></div>
-        <div>{{hp.localized_name}}</div>
+        <div class='icon'><img [src]="hp.key | gallery:'hero':'sm'"></div>
+        <div class='name'>{{hp.localized_name}}</div>
+        <i class="fa fa-check-square-o selected-icon" [hidden]="!isSelected(hp.key)"></i>
+        <div style='clear:both;'></div>
     </li>
 </ul>

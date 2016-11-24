@@ -3,27 +3,8 @@ import { Router }               from '@angular/router';
 import { Hero, HeroService }        from '../../db/hero.service';
 
 @Component({
-    template: `
-        <div>
-            <a routerLink="/hero/create">Create Hero Profile</a>
-        </div>
-        <table>
-            <thead>
-                <tr>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let hero of heroes" (click)="onEditHero(hero)">
-                    <td><img [src]="hero.key | gallery:'hero':'sm'" /></td>
-                    <td>{{hero.name}}</td>
-                </tr>
-            </tbody>
-        </table>
-    `,
-    styles: [`
-        tr {cursor: pointer;}
-    `]
+    templateUrl: './hero-list.component.html',
+    styleUrls: ['./hero-list.component.css']
 })
 export class HeroListComponent implements OnInit {
     heroes: Hero[];
@@ -39,6 +20,15 @@ export class HeroListComponent implements OnInit {
 
     onEditHero(hero: Hero) {
         this.router.navigate(['hero/edit', hero.id]);
+    }
+
+    enumFaction(index: number) {
+        switch(index) {
+            case 0:
+            return "radiant";
+        default:
+            return "dire";
+        }
     }
 
     ngOnInit(): void {
