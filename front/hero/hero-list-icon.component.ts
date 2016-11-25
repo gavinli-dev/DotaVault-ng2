@@ -39,15 +39,15 @@ export class HeroListIconComponent {
     @Output() heroFocused: EventEmitter<any> = new EventEmitter();
     focused: string = "none";
 
-    @HostListener('mouseover', ['$event.target']) onmouseover() {
+    @HostListener('mouseover') onmouseover() {
         this.focused = "block";
         this.heroFocused.emit(this.hero);
     }
-    @HostListener('mouseout', ['$event.target']) onmouseout() {
+    @HostListener('mouseout') onmouseout() {
         this.focused = "none";
         
     }
-    @HostListener('click', ['$event.target']) onclick() {
+    @HostListener('click') onclick() {
         this.router.navigate(['/hero-detail', this.hero.id]);
     }
 

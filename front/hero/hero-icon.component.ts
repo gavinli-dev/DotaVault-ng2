@@ -22,8 +22,7 @@ export class HeroIconComponent {
         private router: Router
     ) { }
 
-    @HostListener('click', ['$event.target'])
-    onclick() {
+    @HostListener('click') onclick() {
         this.router.navigate(['/hero-detail', this.hero.id])
     }
 }

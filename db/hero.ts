@@ -8,7 +8,9 @@ export class Hero {
     role = {
         hardCarry: 0,
         semiCarry: 0,
-        ganker: 0
+        ganker: 0,
+        roamer: 0,
+        offlaner: 0
     };
     abilities:          any;
 }

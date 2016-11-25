@@ -1,18 +1,18 @@
 //var webpackMerge = require('webpack-merge');
-//var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 //var commonConfig = require('./webpack.common.js');
 var htmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  //devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-eval-source-map',
     entry: {
         'polyfills': './vendor/polyfill.ts',
-        //'vendor': './vendor/vendor.ts',
+        // 'vendor': './vendor/vendor.ts',
         'front': './front/main.ts',
         'admin': './admin/main.ts'
     },
   output: {
-    path: ('./dist/jit'),
+    path: ('./dist-hot'),
     publicPath: 'http://localhost:8080/',
     filename: '[name].js'
     //chunkFilename: '[id].chunk.js'
@@ -20,9 +20,9 @@ module.exports = {
   resolve: {
         extensions: ['', '.ts', '.js']
     },
-  //plugins: [
-    //new ExtractTextPlugin('[name].css')
-  //],
+  plugins: [
+    new ExtractTextPlugin('[name].css')
+  ],
   module: {
         loaders: [
             {
@@ -57,7 +57,7 @@ module.exports = {
       })
   ],
   devServer: {
-    contentBase: './dist/jit',
+    contentBase: './dist-hot',
     // hot: true,
     // inline: true,
     // progress: true,

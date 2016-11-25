@@ -12,17 +12,19 @@
         "typeRoots": [
             "node_modules/@types/"
         ],
-        "outDir": "dist-aot/unbundled"
+        "outDir": "dist-unbundled"
     },
     "files": [
         "front/app.module.ts",
-        "front/main-aot.ts"
+        "admin/app.module.ts",
+        "front/main-aot.ts",
+        "admin/main-aot.ts"
     ],
     "exclude": [
         "node_modules"
     ],
     "angularCompilerOptions": {
-        "genDir": "dist-aot/factory",
+        "genDir": "dist-factory",
         "skipMetadataEmit": true
     }
 }

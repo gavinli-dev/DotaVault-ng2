@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "webserv:lite": "webpack-dev-server --config webpack-lite.config.js",
     "webserv": "webpack-dev-server -d --hot --inline",
-    "ngc": "ngc -p tsconfig-aot.json"
+    "ngc": "ngc -p tsconfig-aot.json",
+    "rollup": "rollup -c rollup-config.js"
   },
   "dependencies": {
     "@angular/common": "^2.2.3",
@@ -20,15 +22,17 @@
     "zone.js": "0.6.21"
   },
   "devDependencies": {
+    "typescript": "^2.0.10",
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.51",
+    
     "@angular/compiler-cli": "^2.2.3",
     "@angular/platform-server": "^2.2.3",
     "rollup": "^0.36.3",
     "rollup-plugin-commonjs": "^5.0.5",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
-    "typescript": "^2.0.10",
-    "@types/core-js": "^0.9.34",
-    "@types/node": "^6.0.51",
+    
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.17.0",
