@@ -1,1 +1,7 @@
-steam key : C0B54909492797390B2158D3587729E5
+production example with aot process:
+1.npm run ngc
+2.npm run rollup
+3.npm run webserv:aot
+
+debug server with jit compile:
+1.npm run webserv

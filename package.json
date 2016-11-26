@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "webserv:lite": "webpack-dev-server --config webpack-lite.config.js",
+    "webserv:aot": "webpack-dev-server --config webpack-lite.config.js",
     "webserv": "webpack-dev-server -d --hot --inline",
     "ngc": "ngc -p tsconfig-aot.json",
     "rollup": "rollup -c rollup-config.js"
