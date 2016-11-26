@@ -1,5 +1,5 @@
 import { platformBrowser } from '@angular/platform-browser';
-import { AppModule } from './app/app.module';
+import { AppModuleNgFactory } from '../dist-factory/admin/app.module.ngfactory';
 
 const platform = platformBrowser();
-platform.bootstrapModule(AppModule);
+platform.bootstrapModuleFactory(AppModuleNgFactory);
