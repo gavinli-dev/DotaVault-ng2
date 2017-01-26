@@ -1,0 +1,20 @@
+<div class="center-content mat-box">
+    <h1>Heroes</h1>
+    <div class='focused-hero-quickview'>
+        <div *ngIf="focusedHero">
+            <div class="hero-name">{{focusedHero.name}}</div>
+            Attack: {{focusedHero.attackType}}
+        </div>
+        <div *ngIf="!focusedHero">
+            Select a hero to view detailed feature!
+        </div>
+    </div>
+    <div class='hero-list'>
+        <hero-list-icon
+            *ngFor='let hero of heroes'
+            [hero]='hero'
+            (heroFocused)="onHeroFocused($event)"
+            (heroSelected)="onHeroSelected($event)">
+        </hero-list-icon>
+    </div>
+</div>

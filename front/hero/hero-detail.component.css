@@ -1,0 +1,33 @@
+.hero-portrait img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 1000px;
+    width: 235px;
+    height: 235px;
+}
+table {
+    background: #ddd;
+    width: 100%;
+}
+table th {
+    padding: 3px 0 3px 12px;
+    text-align: left;
+    border-right: 2px solid white;
+}
+table td {
+    padding: 3px 0 3px 12px;
+}
+
+/*hero content*/
+.skill-icon {
+    float: left;
+    margin-right: 2px;
+    border-radius: 2px;
+}
+.skill-description {
+    clear: both;
+}
+/*battle array*/
+.battle-array {
+    margin-top: 12px;
+}

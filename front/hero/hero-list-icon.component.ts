@@ -1,7 +1,8 @@
-import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import { Component, HostListener, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Hero } from '../../db/hero.service';
+import { routeAnimation }       from '../route.animation';
 
 @Component({
     selector: 'hero-list-icon',
@@ -32,11 +33,15 @@ import { Hero } from '../../db/hero.service';
             border-radius: 4px;
             box-shadow: #777 1px 1px 3px;
         }
-    `]
+    `],
+    animations: [
+        routeAnimation
+    ]
 })
 export class HeroListIconComponent {
     @Input() hero: Hero;
     @Output() heroFocused: EventEmitter<any> = new EventEmitter();
+    @Output() heroSelected: EventEmitter<any> = new EventEmitter();
     focused: string = "none";
 
     @HostListener('mouseover') onmouseover() {
@@ -45,10 +50,14 @@ export class HeroListIconComponent {
     }
     @HostListener('mouseout') onmouseout() {
         this.focused = "none";
-        
+
     }
     @HostListener('click') onclick() {
-        this.router.navigate(['/hero-detail', this.hero.id]);
+        this.heroSelected.emit(this.hero);
+    }
+
+    @HostBinding("@routeAnimation") get routeAnimation() {
+        return 'default';
     }
 
     constructor(private router: Router) { }

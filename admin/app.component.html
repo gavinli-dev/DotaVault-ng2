@@ -1,23 +1,19 @@
-<nav class="navbar navbar-static-top" style="margin-bottom:0;">
-    
-    <div class="navbar-default sidebar">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav">
-                <li>
-                    <a routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
-                </li>
-                <li>    
-                    <a routerLinkActive="active" routerLink="/hero">Heroes</a>
-                </li>
-                <li>
-                    <a routerLinkActive="active" routerLink="/skill">Skills</a>
-                </li>
-                <li>
-                    <a routerLinkActive="active" routerLink="/item">Items</a>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar">
+    <div class="personal">
+        <div class="avatar"><img src="/img/logo.png" ></div>
+        <div class="name">Hello Administrator</div>
     </div>
+    <ul>
+        <li>
+            <a routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li>    
+            <a routerLinkActive="active" routerLink="/hero">Heroes</a>
+        </li>
+        <li>
+            <a routerLinkActive="active" routerLink="/item">Items</a>
+        </li>
+    </ul>
 </nav>
 <div id="page-wrapper">
     <router-outlet></router-outlet>

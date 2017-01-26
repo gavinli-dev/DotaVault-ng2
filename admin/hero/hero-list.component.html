@@ -1,13 +1,12 @@
-<div class="action-buttons-area">
-    <a class="btn btn-primary" routerLink="/hero/create">Create Hero Profile</a>
-</div>
-<table class="table table-striped table-hover">
-    <tbody>
+<table class="table table-striped table-hover md-box">
+    <thead>
         <tr>
             <th></th>
             <th>Faction</th>
             <th>Name</th>
         </tr>
+    </thead>
+    <tbody>
         <tr *ngFor="let hero of heroes" (click)="onEditHero(hero)">
             <td class="potrait">
                 <img [src]="hero.key | gallery:'hero':'sm'" />
@@ -26,3 +25,8 @@
         </tr>
     </tfoot>
 </table>
+<span class="fixed-bottom-button">
+    <button md-fab color="primary" routerLink="/hero/create">
+        <md-icon class="md-24">add</md-icon>
+    </button>
+</span>

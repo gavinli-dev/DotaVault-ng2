@@ -34,9 +34,6 @@ export class HeroEditorComponent implements OnInit {
 
     onSave(): void {
         let errMsg = "";
-        //console.log(this.abilities);
-
-        //console.log(this.alc.abilities);
         this.hero.abilities = this.alc.abilities;
 
         if(this.heroId == null) {
@@ -56,6 +53,18 @@ export class HeroEditorComponent implements OnInit {
                 error => errMsg = <any>error
             );
         }
+    }
+
+    onDelete(): void {
+        let errMsg = "";
+        
+        this.hs.deleteHero(this.hero).subscribe(
+            hero => {
+                this.outputEvent.emit(hero),
+                this.router.navigate(['hero'])
+            },
+            error => errMsg = <any>error
+        );
     }
 
     onBack() {

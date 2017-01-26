@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from "@angular/core";
 
-import { HeroPotrait, HeroPotraitService } from "../../db/hero-potrait.service";
+import { LightboxComponent }                from '../../shared/lightbox/component';
+import { HeroPotrait, HeroPotraitService }  from "../../db/hero-potrait.service";
 
 @Component({
     selector: 'potrait-select',
@@ -9,6 +10,7 @@ import { HeroPotrait, HeroPotraitService } from "../../db/hero-potrait.service";
 })
 export class PotraitSelect implements OnInit {
     @Output() outputEvent = new EventEmitter();
+    @ViewChild(LightboxComponent) portraitList: LightboxComponent;
     heroPotraits: HeroPotrait[];
     heroPotrait: HeroPotrait;
 
@@ -17,6 +19,12 @@ export class PotraitSelect implements OnInit {
     onSelect(hp: HeroPotrait): void {
         this.heroPotrait = hp;
         this.outputEvent.emit(hp);
+        this.portraitList.hide();
+    }
+
+    onLoadPotraitList() {
+        console.log("to load potrait list");
+        this.portraitList.show();
     }
 
     isSelected(key: string) {

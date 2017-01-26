@@ -1,0 +1,10 @@
+<div class="mask"
+    [@maskAnim]="state"
+    (@maskAnim.start)="animStarted($event)"
+    (@maskAnim.done)="animEnded($event)">
+</div>
+<div class="light-content md-box" [@contentAnim]="state"><div class="inner-border">
+    <md-icon class="close" (click)="onClose()">close</md-icon>
+    <div class="title">{{title}}</div>
+    <ng-content></ng-content>
+</div></div>

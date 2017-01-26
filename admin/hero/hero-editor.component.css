@@ -1,0 +1,22 @@
+fieldset {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+.outlook {
+    overflow: auto;
+}
+.outlook .left-potrait {
+    width: 256px;
+    float: left;
+}
+.outlook .right-attrs {
+    width: 240px;
+    float: left;
+    margin-left: 15px;
+}
+.abilities {
+    margin-top: 15px;
+}
+.form-group {
+    margin-bottom: 8px;
+}

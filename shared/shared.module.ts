@@ -1,26 +1,28 @@
 import { NgModule }         from '@angular/core';
 import { CommonModule }     from '@angular/common';
-// import { HttpModule }       from '@angular/http';
+import { MaterialModule }   from '@angular/material';
 
-import { RatingComponent }  from './rating.component';
-import { GalleryPipe }      from './gallery.pipe';
-//import { DbHero }    from './db.hero';
+import { BurgerNavComponent }   from './burger-nav/component';
+import { LightboxComponent }    from './lightbox/component';
+import { RatingComponent }      from './rating.component';
+import { GalleryPipe }          from './gallery.pipe';
 
 @NgModule({
     imports: [
         CommonModule,
-        // HttpModule
+        MaterialModule
     ],
     declarations: [
+        BurgerNavComponent,
+        LightboxComponent,
         RatingComponent,
         GalleryPipe
     ],
     exports: [
+        BurgerNavComponent,
+        LightboxComponent,
         RatingComponent,
         GalleryPipe
-    ],
-    // providers: [
-    //     DbHero
-    // ]
+    ]
 })
 export class SharedModule { }

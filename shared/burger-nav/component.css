@@ -1,0 +1,115 @@
+nav {
+    display: block;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    transition-timing-function: ease;
+    transition-duration: .2s;
+    transition-property: all;
+}
+nav.expanded {
+    height: 90vh;
+    width: 90vw;
+    top: 5vh;
+    left: 5vw;
+}
+.navbar-header {
+    width: 48px;
+    height: 48px;
+    float: left;
+}
+.navbar-header .navbar-brand {
+    display: block;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    background: url('/img/logo.png') -1px -1px;
+    background-size: 48px 48px;
+}
+button.navbar-toggle {
+    display: none;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+button.navbar-toggle:focus {
+    outline: none;
+}
+.navbar-toggle span.icon-bar {
+    display:block;
+    position: absolute;
+    top: 10px;
+    left: 4px;
+    width: 32px;
+    height: 3px;
+    border-radius: 4px;
+    background: #333;
+    transition-timing-function: ease;
+    transition-duration: .2s;
+    transition-property: transform, opacity;
+}
+.navbar-toggle span.icon-bar:nth-child(2) {
+    top: 22px;
+}
+.navbar-toggle span.icon-bar:nth-child(3) {
+    top: 34px;
+}
+.navbar-toggle.is-active span.icon-bar:nth-child(1) {
+    transform: rotate(-45deg) translate3d(-4.69px, 12px,0);
+}
+.navbar-toggle.is-active span.icon-bar:nth-child(2) {
+    opacity: 0;
+    transform: translate3d(-4px,0,0);
+}
+.navbar-toggle.is-active span.icon-bar:nth-child(3) {
+    transform: rotate(45deg) translate3d(-4.69px,-12px,0);
+}
+.navbar-collection {
+    position: absolute;
+    top: 0;
+    left: 48px;
+    overflow: auto;
+    background: white;
+    box-sizing: border-box;
+}
+.navbar-collection .nav-item {
+    float: left;
+    height: 48px;
+}
+.navbar-collection .nav-item a {
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #777;
+    box-sizing: border-box;
+}
+.navbar-collection .nav-item.active {
+    background-color: #ccc;
+}
+@media screen and (max-width: 580px) {
+    .navbar-collection {
+        top: 50px;
+        left: 0;
+        width: 100%;
+    }
+    .navbar-collection .nav-item {
+        width: 100%;
+        margin: 0;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    
+    button.navbar-toggle {
+        display: block;
+    }
+}

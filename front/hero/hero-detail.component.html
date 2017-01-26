@@ -1,19 +1,69 @@
 <div *ngIf="hero">
-    <div class="protrait">
-        <h1>{{hero.name}}</h1>
-        <img [src]="hero.key | gallery:'hero':'vert'" >
-        <rating [rate]="hero.role.hardCarry" label="Hard Carry"></rating>
-        <rating [rate]="hero.role.semiCarry" label="Semi Carry"></rating>
-        <rating [rate]="hero.role.ganker" label="Ganker"></rating>
-        <rating [rate]="hero.role.roamer" label="Roamer"></rating>
-        <rating [rate]="hero.role.offlaner" label="Offlaner"></rating>
+    <div class="hero-portrait left-subcontent mat-box">
+        <div class="action-btns-area">
+            <button (click)="onBackToList()">back to heroes</button>
+        </div>
+
+        <img [src]="hero.key | gallery:'hero':'ex'" >
+        <h3>{{hero.name}}</h3>
+
+        <table>
+            <tr>
+                <th>Faction</th>
+                <td>
+                    <span *ngIf="isRadiant()" class="faction radiant-text">
+                        Radiant
+                    </span>
+                    <span *ngIf="isDire()" class="faction dire-text">
+                        Dire
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>Primary Attribute</th>
+                <td><span class="pa">{{paText}}</span></td>
+            </tr>
+            <tr>
+                <th>Attack Type</th>
+                <td><span class="at">Melee</span></td>
+            </tr>
+        </table>
+        <h4>Suggested Roles</h4>
+        <div>
+            <rating [rate]="hero.role.hardCarry" label="Hard Carry"></rating>
+            <rating [rate]="hero.role.semiCarry" label="Semi Carry"></rating>
+            <rating [rate]="hero.role.ganker" label="Ganker"></rating>
+            <rating [rate]="hero.role.roamer" label="Roamer"></rating>
+            <rating [rate]="hero.role.offlaner" label="Offlaner"></rating>
+        </div>
     </div>
-    <div class="profile">
-        <h2>Hero Profile</h2>
-        Blablabla
+    <div class="hero-content right-subcontent mat-box">
+        <div class="profile">
+            <h4>Hero Profile</h4>
+            {{hero.description}}
+        </div>
+        <div class="skills">
+            <h4>Abilities</h4>
+            <div *ngFor="let ab of hero.abilities; let i=index" class="skill-icon">
+                <img [src]="ab.key | gallery:'ability':'md'" [class]="i == 0">
+            </div>
+            <div class="skill-description">
+                skill description
+            </div>
+        </div>
     </div>
-    <div class="skills">
-        <h2>Skills</h2>
-        skilles
+
+    <div class="battle-array right-subcontent mat-box">
+        <h4>Suggested Battle Array</h4>
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+        </ul>
     </div>
 </div>

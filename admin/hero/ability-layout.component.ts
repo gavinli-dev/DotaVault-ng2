@@ -1,15 +1,19 @@
-import { Component, Input, Output, OnInit, EventEmitter } from "@angular/core";
-import { Ability }          from "../../db/ability.service"
+import { Component, Input, Output, OnInit, EventEmitter, ViewChild } from "@angular/core";
+import { LightboxComponent }    from '../../shared/lightbox/component';
+import { Ability }              from "../../db/ability.service"
 
 @Component({
     selector: "ability-layout",
-    templateUrl: "./ability-layout.component.html"
+    templateUrl: "./ability-layout.component.html",
+    styleUrls: [
+        './ability-layout.component.css'
+    ]
 })
 export class AbilityLayoutComponent implements OnInit {
     @Input() layoutSlot: number;
     @Input() abilities: Ability[];
-    @Output() abilitiesChanged: EventEmitter<any> = new EventEmitter();
-
+    @Output() abilitiesEvents: EventEmitter<any> = new EventEmitter();
+    @ViewChild(LightboxComponent) selectorBox: LightboxComponent;
     slotIndex: number = 0;
 
     onInsertAbility() {
@@ -17,12 +21,14 @@ export class AbilityLayoutComponent implements OnInit {
     }
 
     onAbilitySelect ($event: any) {
+        this.selectorBox.hide();
         this.abilities[this.slotIndex] = $event;
-        this.abilitiesChanged.emit(this.abilities);
+        this.abilitiesEvents.emit(this.abilities);
     }
 
     onSelectSlot (slotIndex: number) {
         this.slotIndex = slotIndex;
+        this.selectorBox.show();
     }
 
     ngOnInit() {

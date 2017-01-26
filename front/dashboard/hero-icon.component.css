@@ -1,0 +1,28 @@
+:host {
+    display: block;
+    padding: 2px;
+    margin: 0 8px 8px 0;
+    overflow: auto;
+    cursor: pointer;
+    float: left;
+    width: 160px;
+}
+.icon {
+    float: left;
+    width: 60px;
+}
+.icon img {
+    display: block;
+}
+.icon .name {
+    font-size: smaller;
+    color: #777;
+}
+.info {
+    font-size: small;
+    float: left;
+    padding: 0 0 0 5px;
+}
+.info .suggested-role {
+    color: #ccc;
+}

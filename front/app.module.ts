@@ -1,7 +1,8 @@
 import { NgModule }             from '@angular/core';
 import { BrowserModule }        from '@angular/platform-browser';
-
 import { RouterModule }         from '@angular/router';
+
+import { SharedModule }         from '../shared/shared.module';
 import { DashboardModule }      from './dashboard/dashboard.module';
 import { HeroModule }           from './hero/hero.module';
 //import { BattleArrayModule}     from '../battle-array/battle-array.module';
@@ -15,6 +16,7 @@ import { AppComponent }         from './app.component';
         RouterModule.forRoot([
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]),
+        SharedModule,
         DashboardModule,
         HeroModule,
         // BattleArrayModule

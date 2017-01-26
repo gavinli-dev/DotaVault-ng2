@@ -1,0 +1,10 @@
+<div class="icon">
+    <img [src]="hero.key | gallery:'hero':'sm'" />
+    <div class="name">{{hero.name}}</div>
+</div>
+<div class="info">
+    
+    <div class="suggested-role" *ngFor="let roleKey of roleKeys">
+        {{roleKey}}
+    </div>
+</div>

@@ -72,6 +72,14 @@ export class HeroService {
             catch(this.handleError);
     }
 
+    deleteHero(hero: Hero): Observable<Hero> {
+        let headers = new Headers({'Content-Type': "application/json"});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.delete(this.heroApi + "/" + hero.id, options).
+            catch(this.handleError);
+    }
+
     // getHeroesFromApi()
     // {
     //     let headers = new Headers({'Content-Type': "application/json"});

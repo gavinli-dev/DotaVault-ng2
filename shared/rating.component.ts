@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
     selector: 'rating',
@@ -33,7 +33,9 @@ import { Component, Input, OnInit } from '@angular/core';
     </div>
     `
 })
-export class RatingComponent implements OnInit{
+export class RatingComponent implements OnInit {
+    @Input() editable: boolean = false;
+
     @Input() max: number = 3;
     @Input() rate: number;
     @Input() label: string = "rate label";

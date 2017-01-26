@@ -1,6 +1,26 @@
-td.potrait {
-    width: 80px;
+table {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+thead tr th {
+    padding: 15px 0;
+    text-align: left;
+}
+tbody tr {
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+tbody tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+tbody tr:hover {
+    background-color: #ddd;
+}
+td {
     padding: 5px;
+}
+td.potrait {
+    width: 59px;
 }
 td.faction {
     width: 100px;

@@ -1,0 +1,41 @@
+:host {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 100;
+    background: transparent;
+}
+.mask {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: #eee;
+    opacity: 0.2;
+    display: block;
+}
+.light-content {
+    position: absolute;
+    top: 50%; left: 50%;
+    box-sizing: border-box;
+    width: 480px;
+    padding: 4px;
+    transform: translate(-50%, -50%);
+    background: white;
+}
+.light-content .inner-border {
+    overflow: auto;
+    border: 1px solid #eee;
+    padding: 4px;
+}
+.close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.title {
+    font-weight: bold;
+    padding: 5px 0;
+}

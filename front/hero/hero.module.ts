@@ -1,12 +1,11 @@
 import { NgModule }         from '@angular/core';
 import { CommonModule }     from '@angular/common';
-//import { FormsModule }      from '@angular/forms';
 
 import { SharedModule }         from '../../shared/shared.module';
 import { HeroService }          from '../../db/hero.service';
 
 import { RoutingModule }        from './routing.module';
-import { HeroIconComponent }    from './hero-icon.component';
+//import { HeroIconComponent }    from './hero-icon.component';
 import { HeroListComponent }    from './hero-list.component';
 import { HeroListIconComponent} from './hero-list-icon.component';
 import { HeroDetailComponent }  from './hero-detail.component';
@@ -14,16 +13,15 @@ import { HeroDetailComponent }  from './hero-detail.component';
 @NgModule({
     imports: [
         CommonModule,
-        // FormsModule,
         SharedModule,
         RoutingModule
         
     ],
     exports: [
-        HeroIconComponent
+        //HeroIconComponent
     ],
     declarations: [
-        HeroIconComponent,
+        //HeroIconComponent,
         HeroListComponent,
         HeroListIconComponent,
         HeroDetailComponent

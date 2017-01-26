@@ -1,0 +1,13 @@
+<nav class="mat-box" [class.expanded]="navbarExpanded" role="">
+    <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/dashboard"></a>
+    </div>
+    <div class="navbar-collection" [hidden]="navCollectionHidden">
+        <ng-content></ng-content>
+    </div>
+    <button class="navbar-toggle" type="button" [class.is-active]="isActive" (click)="toggleNav()">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</nav>

@@ -1,27 +1,22 @@
-import { Component, OnInit }                from '@angular/core';
+import { Component, OnInit, HostBinding }   from '@angular/core';
 import { Router, ActivatedRoute, Params }   from '@angular/router';
 
 import { Hero, HeroService }        from '../../db/hero.service';
 import { HeroListIconComponent }    from './hero-list-icon.component';
 
+import { routeAnimation }       from '../route.animation';
+
 @Component({
     selector: 'heroes',
-    template: `
-        <h1>Heroes</h1>
-        <div class='focused-hero-quickview'>
-            <div *ngIf="focusedHero">
-                <div class="hero-name">{{focusedHero.name}}</div>
-                Attack: {{focusedHero.attackType}}
-            </div>
-            <div *ngIf="!focusedHero">
-                Select a hero to view detailed feature!
-            </div>
-        </div>
-        <div class='hero-list'>
-            <hero-list-icon *ngFor='let hero of heroes' [hero]='hero' (heroFocused)="onHeroFocused($event)"></hero-list-icon>
-        </div>
-    `,
+    templateUrl: 'hero-list.component.html',
     styles: [`
+        :host {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
         .hero-list {
             padding: 15px 25px;
         }
@@ -32,12 +27,21 @@ import { HeroListIconComponent }    from './hero-list-icon.component';
             background: #333;
             border-radius: 4px;
         }
-    `]
+    `],
+    animations: [
+        routeAnimation
+    ]
 })
 export class HeroListComponent implements OnInit {
     heroes: Hero[];
     focusedHero: Hero;
     private selectedId: number;
+
+    animState: string = 'default';
+
+    @HostBinding("@routeAnimation") get routeAnimation() {
+        return this.animState;
+    }
 
     constructor(
         private route: ActivatedRoute,
@@ -51,6 +55,12 @@ export class HeroListComponent implements OnInit {
 
     onHeroFocused(heroEvent: any) {
         this.focusedHero = heroEvent;
+    }
+    
+    onHeroSelected(heroEvent: Hero) {
+        //console.info(heroEvent);
+        this.animState = "childActivate";
+        this.router.navigate(['/hero-detail', heroEvent.id]);
     }
 
     ngOnInit(): void {
